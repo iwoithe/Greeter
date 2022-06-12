@@ -1,7 +1,7 @@
 set(MODULE_NAME "AppShell")
 
 set(MODULE_SRC
-    test.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/test.cpp
 )
 
 set(MODULE_QRC
