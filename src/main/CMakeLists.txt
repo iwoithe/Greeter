@@ -1,8 +1,8 @@
-add_executable(Greet
+add_executable(Greeter
     main.cpp
 )
 
-target_link_libraries(Greet PUBLIC
+target_link_libraries(Greeter PUBLIC
     AppShell
     # Greet
     ${QT_LIBRARIES}
