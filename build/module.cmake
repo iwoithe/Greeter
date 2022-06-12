@@ -1,6 +1,13 @@
 message(STATUS "Configuring " ${MODULE_NAME})
 
+if (NOT PROJECT_ROOT_DIR)
+    set(PROJECT_ROOT_DIR ${PROJECT_SOURCE_DIR})
+endif()
+
 add_library(${MODULE_NAME} STATIC)
+
+qt5_add_resources(MODULE_RCC ${MODULE_QRC})
+qt5_add_big_resources(MODULE_BIG_RCC ${MODULE_BIG_QRC})
 
 target_sources(${MODULE_NAME} PRIVATE
     ${MODULE_RCC}

@@ -1,10 +1,8 @@
-#include <iostream>
+#include "appshell/appshell.h"
 
-#include "appshell/test.cpp"
-
-int main()
+int main(int argc, char *argv[])
 {
-    std::cout << "Hello, World!" << std::endl;
-    helloFromAppShell();
-    return 0;
+    gt::appshell::AppShell app;
+    int code = app.run(argc, argv);
+    return code;
 }

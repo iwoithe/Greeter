@@ -1,10 +1,11 @@
-set(MODULE_NAME "AppShell")
+set(MODULE_NAME appshell)
 
 set(MODULE_SRC
-    ${CMAKE_CURRENT_LIST_DIR}/test.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/appshell.cpp
 )
 
 set(MODULE_QRC
+    ${CMAKE_CURRENT_LIST_DIR}/appshell.qrc
 )
 
 include(${PROJECT_SOURCE_DIR}/build/module.cmake)

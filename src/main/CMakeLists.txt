@@ -1,9 +1,9 @@
 add_executable(Greeter
-    main.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/main.cpp
 )
 
-target_link_libraries(Greeter PUBLIC
-    AppShell
-    # Greet
+target_link_libraries(Greeter PRIVATE
     ${QT_LIBRARIES}
+    appshell
+    # Greet
 )
