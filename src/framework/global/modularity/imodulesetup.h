@@ -7,7 +7,7 @@ namespace modularity {
 class IModuleSetup
 {
 public:
-    // IModuleSetup();
+    // virtual IModuleSetup();
     virtual ~IModuleSetup() {}
     virtual std::string moduleName() const = 0;
     virtual void registerResources() {}

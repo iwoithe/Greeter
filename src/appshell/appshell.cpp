@@ -13,9 +13,19 @@ AppShell::AppShell()
 {
 }
 
-AppShell::run(int argc, char** argv)
+void AppShell::addModule(modularity::IModuleSetup* module)
+{
+    m_modules.push_back(module);
+}
+
+int AppShell::run(int argc, char** argv)
 {
     QApplication app(argc, argv);
+
+    for (modularity::IModuleSetup* m : m_modules) {
+        m->registerResources();
+    }
+
     QQmlApplicationEngine* engine = new QQmlApplicationEngine();
 
     const QUrl url(QStringLiteral("qrc:/qml") + "/main.qml");
