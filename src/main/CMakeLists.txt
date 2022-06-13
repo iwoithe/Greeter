@@ -5,5 +5,5 @@ add_executable(Greeter
 target_link_libraries(Greeter PRIVATE
     ${QT_LIBRARIES}
     appshell
-    # Greet
+    greet
 )
