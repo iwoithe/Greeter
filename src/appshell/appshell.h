@@ -1,5 +1,5 @@
-#ifndef GT_APPSHELL_APPSHELL
-#define GT_APPSHELL_APPSHELL
+#ifndef GT_APPSHELL_APPSHELL_H
+#define GT_APPSHELL_APPSHELL_H
 
 namespace gt::appshell
 {

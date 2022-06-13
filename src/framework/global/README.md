@@ -1,0 +1,1 @@
+This module does not contain any code dependent on libraries such as Qt, KDDockWidgets etc.
