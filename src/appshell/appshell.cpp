@@ -26,6 +26,10 @@ int AppShell::run(int argc, char** argv)
         m->registerResources();
     }
 
+    for (modularity::IModuleSetup* m : m_modules) {
+        m->registerUiTypes();
+    }
+
     QQmlApplicationEngine* engine = new QQmlApplicationEngine();
 
     const QUrl url(QStringLiteral("qrc:/qml") + "/main.qml");
