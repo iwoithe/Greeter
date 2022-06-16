@@ -4,8 +4,6 @@
 #include <QVariantMap>
 #include <string>
 
-#include "iactionsdispatcher.h"
-
 namespace gt::actions
 {
 using ActionCode = std::string;
