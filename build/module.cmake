@@ -26,4 +26,4 @@ target_include_directories(${MODULE_NAME} PUBLIC
 )
 
 set(MODULE_LINK ${QT_LIBRARIES} ${MODULE_LINK})
-target_link_libraries(${MODULE_NAME} PRIVATE ${MODULE_LINK} )
+target_link_libraries(${MODULE_NAME} PRIVATE ${MODULE_LINK})
