@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import Greet.Stores 0.1
 
 
 Window {
@@ -8,4 +9,9 @@ Window {
     height: 600
     title: qsTr("Greeter")
     visible: true
+
+    Text {
+        anchors.centerIn: parent
+        text: GreetingStore.name;
+    }
 }

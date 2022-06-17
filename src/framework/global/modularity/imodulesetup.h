@@ -11,8 +11,8 @@ public:
     virtual ~IModuleSetup() {}
     virtual std::string moduleName() const = 0;
     virtual void registerResources() {}
+    virtual void registerStores() {}
     virtual void registerUiTypes() {}
-
 };
 } // gt::modularity
 

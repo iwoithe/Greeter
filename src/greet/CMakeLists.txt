@@ -1,8 +1,8 @@
 set(MODULE_NAME greet)
 
 set(MODULE_SRC
-    # ${CMAKE_CURRENT_LIST_DIR}/internal/greetactions.cpp
-    # ${CMAKE_CURRENT_LIST_DIR}/internal/greetactions.h
+    ${CMAKE_CURRENT_LIST_DIR}/internal/greetingstore.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/internal/greetingstore.h
     ${CMAKE_CURRENT_LIST_DIR}/greetmodule.cpp
     ${CMAKE_CURRENT_LIST_DIR}/greetmodule.h
 )

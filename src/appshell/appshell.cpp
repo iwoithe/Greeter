@@ -24,9 +24,7 @@ int AppShell::run(int argc, char** argv)
 
     for (modularity::IModuleSetup* m : m_modules) {
         m->registerResources();
-    }
-
-    for (modularity::IModuleSetup* m : m_modules) {
+        m->registerStores();
         m->registerUiTypes();
     }
 
