@@ -16,13 +16,15 @@ class GreetingStore : public QObject, public IStore
     Q_PROPERTY(QString greeting READ greeting NOTIFY greetingChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
 public:
+    void init() override;
+
     QString greeting() const;
     QString name() const;
 private:
-    QString m_greeting = QString("Hi");
+    QString m_greeting = QString("Hello, ");
     void setGreeting(QString greeting);
 
-    QString m_name = QString("Bob");
+    QString m_name;
     void setName(QString name);
 signals:
     void greetingChanged();

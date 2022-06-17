@@ -2,6 +2,13 @@
 
 using namespace gt::greet;
 
+void GreetingStore::init()
+{
+    // TODO: Register setter functions with the dispatcher
+    // dispatcher()->reg(this, "set-greeting", &GreetingStore::setGreeting);
+    // dispatcher()->reg(this, "set-name", &GreetingStore::setName);
+}
+
 QString GreetingStore::greeting() const
 {
     return m_greeting;
