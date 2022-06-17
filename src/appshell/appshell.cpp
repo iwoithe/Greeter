@@ -33,5 +33,10 @@ int AppShell::run(int argc, char** argv)
     const QUrl url(QStringLiteral("qrc:/qml") + "/main.qml");
     engine->load(url);
 
-    return app.exec();
+    int result = app.exec();
+
+    qDeleteAll(m_modules);
+    m_modules.clear();
+
+    return result;
 }
