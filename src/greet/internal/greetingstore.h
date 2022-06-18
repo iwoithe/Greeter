@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QVariantMap>
 
 #include "actions/istore.h"
 
@@ -23,9 +24,17 @@ public:
 private:
     QString m_greeting = QString("Hello, ");
     void setGreeting(QString greeting);
+    void setGreeting(QVariantMap args)
+    {
+        setGreeting(args["greeting"].toString());
+    }
 
     QString m_name;
     void setName(QString name);
+    void setName(QVariantMap args)
+    {
+        setName(args["name"].toString());
+    }
 signals:
     void greetingChanged();
     void nameChanged();
