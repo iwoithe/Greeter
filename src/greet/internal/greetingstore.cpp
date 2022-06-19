@@ -1,6 +1,6 @@
 #include "greetingstore.h"
 
-#include "actions/dispatcher.h"
+#include "actions/internal/dispatcher.h"
 #include "actions/actiontypes.h"
 
 using namespace gt::actions;
@@ -8,8 +8,8 @@ using namespace gt::greet;
 
 void GreetingStore::init()
 {
-    // dispatcher()->reg(this, "set-greeting", &GreetingStore::setGreeting);
-    dispatcher()->reg(this, "set-name", [this](QVariantMap actionData) {this->setName(actionData);});
+    Dispatcher::instance()->reg(this, "set-greeting", [this](QVariantMap actionData) {this->setGreeting(actionData);});
+    Dispatcher::instance()->reg(this, "set-name", [this](QVariantMap actionData) {this->setName(actionData);});
 }
 
 QString GreetingStore::greeting() const

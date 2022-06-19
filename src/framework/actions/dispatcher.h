@@ -5,10 +5,16 @@
 
 using namespace gt::actions;
 
+static Dispatcher* dis;
+
+static void setDispatcher(Dispatcher* d)
+{
+    dis = d;
+}
+
 static Dispatcher* dispatcher()
 {
-    static Dispatcher p;
-    return &p;
+    return dis;
 }
 
 #endif

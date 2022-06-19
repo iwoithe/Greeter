@@ -17,6 +17,11 @@ class GreetingStore : public QObject, public IStore
     Q_PROPERTY(QString greeting READ greeting NOTIFY greetingChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
 public:
+    GreetingStore()
+    {
+        init();
+    }
+
     void init() override;
 
     QString greeting() const;

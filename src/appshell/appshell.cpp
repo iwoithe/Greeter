@@ -2,11 +2,15 @@
 #include <QGuiApplication>
 #include <QMetaType>
 #include <QQmlApplicationEngine>
+#include <QString>
 #include <QStringLiteral>
 #include <QUrl>
+#include <QVariantMap>
 
 #include "appshell.h"
+#include "actions/internal/dispatcher.h"
 
+using namespace gt::actions;
 using namespace gt::appshell;
 
 AppShell::AppShell()
@@ -32,6 +36,10 @@ int AppShell::run(int argc, char** argv)
 
     const QUrl url(QStringLiteral("qrc:/qml") + "/main.qml");
     engine->load(url);
+
+    QVariantMap nameData;
+    nameData["name"] = QString("Bob");
+    Dispatcher::instance()->dispatch("set-name", nameData);
 
     int result = app.exec();
 

@@ -1,5 +1,4 @@
 #include <QQmlEngine>
-
 #include "greetmodule.h"
 
 #include "internal/greetingstore.h"

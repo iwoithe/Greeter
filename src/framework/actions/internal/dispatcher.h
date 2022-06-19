@@ -10,6 +10,7 @@ namespace gt::actions
 class Dispatcher : public IDispatcher
 {
 public:
+    static Dispatcher* instance();
     void dispatch(std::string actionCode, QVariantMap actionData) override;
     void reg(IActionsController* client, const std::string& actionCode, const MethodWithData& callback) override;
 private:

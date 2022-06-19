@@ -1,6 +1,13 @@
+#include <iostream>
 #include "dispatcher.h"
 
 using namespace gt::actions;
+
+Dispatcher* Dispatcher::instance()
+{
+    static Dispatcher d;
+    return &d;
+}
 
 void Dispatcher::dispatch(std::string actionCode, QVariantMap actionData)
 {
@@ -14,7 +21,7 @@ void Dispatcher::dispatch(std::string actionCode, QVariantMap actionData)
         const IActionsController* actionsController = clientIter->first;
         const Callbacks callbacks = clientIter->second;
         auto a = callbacks.find(actionCode);
-        if (a != callbacks.end()) {
+        if (callbacks.size() == 0) {
             continue;
         }
         a->second(actionData);
