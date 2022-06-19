@@ -23,18 +23,10 @@ public:
     QString name() const;
 private:
     QString m_greeting = QString("Hello, ");
-    void setGreeting(QString greeting);
-    void setGreeting(QVariantMap args)
-    {
-        setGreeting(args["greeting"].toString());
-    }
+    void setGreeting(QVariantMap greeting);
 
     QString m_name;
-    void setName(QString name);
-    void setName(QVariantMap args)
-    {
-        setName(args["name"].toString());
-    }
+    void setName(QVariantMap actionData);
 signals:
     void greetingChanged();
     void nameChanged();

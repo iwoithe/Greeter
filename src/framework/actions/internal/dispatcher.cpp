@@ -9,10 +9,10 @@ void Dispatcher::dispatch(std::string actionCode, QVariantMap actionData)
         return;
     }
 
-    const std::map<IActionsController*, std::map<std::string, std::function<void(QVariantMap)>>> clients = actionIter->second;
+    const Clients clients = actionIter->second;
     for (auto clientIter = clients.begin(); clientIter != clients.end(); ++clientIter) {
         const IActionsController* actionsController = clientIter->first;
-        const std::map<std::string, std::function<void(QVariantMap)>> callbacks = clientIter->second;
+        const Callbacks callbacks = clientIter->second;
         auto a = callbacks.find(actionCode);
         if (a != callbacks.end()) {
             continue;
@@ -21,7 +21,7 @@ void Dispatcher::dispatch(std::string actionCode, QVariantMap actionData)
     }
 }
 
-void Dispatcher::reg(IActionsController* client, const std::string& actionCode, std::function<void(QVariantMap)> callback)
+void Dispatcher::reg(IActionsController* client, const std::string& actionCode, const MethodWithData& callback)
 {
     Clients& clients = m_clients[actionCode];
     Callbacks& callbacks = clients[client];

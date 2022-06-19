@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 
+#include "actiontypes.h"
 #include "iactionscontroller.h"
 
 namespace gt::actions
@@ -18,7 +19,7 @@ public:
         dispatch(actionCode, dummy);
     }
     virtual void dispatch(std::string actionCode, QVariantMap actionData) {}
-    virtual void reg(IActionsController* actionsController, const std::string& actionCode, std::function<void(QVariantMap)> callback) {}
+    virtual void reg(IActionsController* actionsController, const std::string& actionCode, const MethodWithData& callback) {}
     virtual void unReg(IActionsController* actionController) {}
     virtual void unReg(IActionsController* actionController, std::string actionCode) {}
 };
