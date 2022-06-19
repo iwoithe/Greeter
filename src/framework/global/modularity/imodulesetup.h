@@ -10,6 +10,7 @@ public:
     // virtual IModuleSetup();
     virtual ~IModuleSetup() {}
     virtual std::string moduleName() const = 0;
+    virtual void registerImports() {}
     virtual void registerResources() {}
     virtual void registerStores() {}
     virtual void registerUiTypes() {}

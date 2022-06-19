@@ -1,7 +1,6 @@
 #include <QApplication>
 #include <QGuiApplication>
 #include <QMetaType>
-#include <QQmlApplicationEngine>
 #include <QString>
 #include <QStringLiteral>
 #include <QUrl>
@@ -9,6 +8,8 @@
 
 #include "appshell.h"
 #include "actions/dispatcher.h"
+
+#include "global/engines.h"
 
 using namespace gt::appshell;
 
@@ -31,10 +32,10 @@ int AppShell::run(int argc, char** argv)
         m->registerUiTypes();
     }
 
-    QQmlApplicationEngine* engine = new QQmlApplicationEngine();
+    qmlAppEngine()->addImportPath(":/qml");
 
     const QUrl url(QStringLiteral("qrc:/qml") + "/main.qml");
-    engine->load(url);
+    qmlAppEngine()->load(url);
 
     QVariantMap nameData;
     nameData["name"] = QString("Bob");

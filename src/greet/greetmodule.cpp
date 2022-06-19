@@ -2,12 +2,13 @@
 #include "greetmodule.h"
 
 #include "internal/greetingstore.h"
+#include "global/engines.h"
 
 using namespace gt::greet;
 
-static void greet_init_resources()
+static void greetInitResources()
 {
-    // Q_INIT_RESOURCE(appshell);
+    Q_INIT_RESOURCE(greet);
 }
 
 std::string GreetModule::moduleName() const
@@ -17,10 +18,10 @@ std::string GreetModule::moduleName() const
 
 void GreetModule::registerResources()
 {
-    greet_init_resources();
+    greetInitResources();
 }
 
 void GreetModule::registerStores()
 {
-    qmlRegisterSingletonInstance("Greet.Stores", 0, 1, "GreetingStore", new GreetingStore());
+    qmlRegisterSingletonInstance("Greeter.Greet.Stores", 0, 1, "GreetingStore", new GreetingStore());
 }

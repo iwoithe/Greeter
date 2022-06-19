@@ -27,7 +27,7 @@ public:
     QString greeting() const;
     QString name() const;
 private:
-    QString m_greeting = QString("Hello, ");
+    QString m_greeting = QString("Hello");
     void setGreeting(QVariantMap greeting);
 
     QString m_name;

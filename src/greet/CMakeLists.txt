@@ -8,7 +8,7 @@ set(MODULE_SRC
 )
 
 set(MODULE_QRC
-
+    greet.qrc
 )
 
 set(MODULE_LINK

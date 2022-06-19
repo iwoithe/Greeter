@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Greeter/Greet/GreetingView.qml</file>
+        <file>qml/Greeter/Greet/qmldir</file>
+    </qresource>
+</RCC>

@@ -11,7 +11,6 @@ public:
     std::string moduleName() const override;
     void registerResources() override;
     void registerStores() override;
-    // void registerUiTypes() override;
 };
 
 } // namespace gt::greet
