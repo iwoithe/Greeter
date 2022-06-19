@@ -4,7 +4,7 @@
 
 using namespace gt::appshell;
 
-static void appshell_init_resources()
+static void appshellInitResources()
 {
     Q_INIT_RESOURCE(appshell);
 }
@@ -16,5 +16,5 @@ std::string AppShellModule::moduleName() const
 
 void AppShellModule::registerResources()
 {
-    appshell_init_resources();
+    appshellInitResources();
 }
