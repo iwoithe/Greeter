@@ -8,9 +8,8 @@
 #include <QVariantMap>
 
 #include "appshell.h"
-#include "actions/internal/dispatcher.h"
+#include "actions/dispatcher.h"
 
-using namespace gt::actions;
 using namespace gt::appshell;
 
 AppShell::AppShell()
@@ -39,7 +38,7 @@ int AppShell::run(int argc, char** argv)
 
     QVariantMap nameData;
     nameData["name"] = QString("Bob");
-    Dispatcher::instance()->dispatch("set-name", nameData);
+    dispatcher()->dispatch("set-name", nameData);
 
     int result = app.exec();
 
