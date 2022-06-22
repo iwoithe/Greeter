@@ -1,2 +1,3 @@
 module Greeter.Greet
+GreetingSettingsDialog 0.1 GreetingSettingsDialog.qml
 GreetingView 0.1 GreetingView.qml
