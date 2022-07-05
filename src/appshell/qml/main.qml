@@ -16,7 +16,7 @@ ApplicationWindow {
         // TODO: Add "File -> Quit"
         Menu {
             id: helpMenu
-            title: qsTr("&Help")
+            title: qsTr("Help")
             Action {
                 text: qsTr("About Qt")
                 onTriggered: AppShell.aboutQt()
