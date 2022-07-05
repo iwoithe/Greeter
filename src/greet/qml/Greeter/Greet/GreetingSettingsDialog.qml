@@ -1,6 +1,15 @@
 import QtQuick 2.15
-import QtQuick.Dialogs 1.3
+import QtQuick.Controls 2.15
+import Greeter.UiComponents 0.1
 
-Dialog {
+DialogView {
+    id: root
     title: qsTr("Greeting Settings")
+    contentItem: Item {
+        id: contentItem
+        Button {
+            text: qsTr("Close with error")
+            onClicked: root.close()
+        }
+    }
 }

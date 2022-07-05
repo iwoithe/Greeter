@@ -36,11 +36,9 @@ void DialogView::exec()
 void DialogView::open()
 {
     QQuickView *view = new QQuickView(qmlEngine(this), nullptr);
-
-    view->setTitle("Test Dialog");
-
+    
+    view->setTitle(m_title);
     view->setContent(QUrl(), nullptr, m_contentItem);
-
     view->show();
 
     qApp->installEventFilter(this);
@@ -75,4 +73,19 @@ void DialogView::setContentItem(QQuickItem* item)
 
     m_contentItem = item;
     emit contentItemChanged();
+}
+
+QString DialogView::title() const
+{
+    return m_title;
+}
+
+void DialogView::setTitle(const QString& title)
+{
+    if (m_title == title) {
+        return;
+    }
+
+    m_title = title;
+    emit titleChanged();
 }
