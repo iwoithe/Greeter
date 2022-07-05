@@ -6,6 +6,8 @@ set(MODULE_SRC
     ${MODULARITY_SRC}
     # TODO: Move engines.h to the ui module
     engines.h
+    ret.cpp
+    ret.h
 )
 
 include(${PROJECT_SOURCE_DIR}/build/module.cmake)
