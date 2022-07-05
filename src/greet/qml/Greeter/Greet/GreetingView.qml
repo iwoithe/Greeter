@@ -17,10 +17,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16
         text: qsTr("Greeting Settings")
-        onClicked: {
-            greetingSettingsDialog.exec()
-            console.log(greetingSettingsDialog.ret["code"])
-        }
+        onClicked: console.log(greetingSettingsDialog.execRet()["code"])
     }
 
     GreetingSettingsDialog {

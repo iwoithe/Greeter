@@ -25,7 +25,9 @@ public:
     ~DialogView() override = default;
 
     Q_INVOKABLE void close();
+    Q_INVOKABLE void close(const QVariantMap& ret);
     Q_INVOKABLE void exec();
+    Q_INVOKABLE QVariantMap execRet();
     Q_INVOKABLE void open();
 
     QQuickItem* parentItem() const;

@@ -21,7 +21,17 @@ DialogView::DialogView(QQuickItem* parent) : QObject(parent)
 
 void DialogView::close()
 {
-    // TODO: How to use QEventLoop
+    if (m_loop.isRunning()) {
+        m_loop.exit();
+    }
+
+    m_view->close();
+}
+
+void DialogView::close(const QVariantMap& ret)
+{
+    setRet(ret);
+
     if (m_loop.isRunning()) {
         m_loop.exit();
     }
@@ -33,6 +43,14 @@ void DialogView::exec()
 {
     open();
     m_loop.exec();
+}
+
+QVariantMap DialogView::execRet()
+{
+    open();
+    m_loop.exec();
+    // TODO: Convert to gt::Ret
+    return m_ret;
 }
 
 void DialogView::open()
