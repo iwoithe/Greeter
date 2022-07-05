@@ -23,6 +23,10 @@ Item {
 
     DialogView {
         id: testDialog
+        contentItem: Rectangle {
+            anchors.fill: parent
+            color: "red"
+        }
     }
 
     GreetingSettingsDialog {
