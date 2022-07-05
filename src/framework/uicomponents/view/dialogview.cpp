@@ -5,7 +5,9 @@
 #include <QUrl>
 #include <QWindow>
 
-#include "global/engines.h"
+// TODO: Remove engines.h
+// #include "global/engines.h"
+#include <QtQml>
 #include "global/ret.h"
 
 
@@ -28,8 +30,8 @@ void DialogView::exec()
 
 void DialogView::open()
 {
-    QQuickView *view = new QQuickView(qmlEngine(), nullptr);
-    view->setSource(QUrl(":/qml/main.qml"));
+    QQuickView *view = new QQuickView(qmlEngine(this), nullptr);
+    view->setSource(QUrl("qrc:/qml/main.qml"));
     view->show();
 
     qApp->installEventFilter(this);
