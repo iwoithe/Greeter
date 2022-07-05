@@ -41,6 +41,8 @@ void DialogView::close(const QVariantMap& ret)
 
 void DialogView::exec()
 {
+    // TODO: Fix "QEventLoop::exec: instance XXX has already called exec()"
+
     open();
     m_loop.exec();
 }
