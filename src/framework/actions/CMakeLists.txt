@@ -1,12 +1,11 @@
 set(MODULE_NAME actions)
 
 set(MODULE_SRC
-    actiontypes.h
-    dispatcher.h
-    iactionscontroller.h
-    idispatcher.h
     internal/dispatcher.cpp
     internal/dispatcher.h
+    actiontypes.h
+    dispatcher.h
+    idispatcher.h
     istore.h
 )
 

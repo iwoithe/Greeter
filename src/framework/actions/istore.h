@@ -1,16 +1,18 @@
 #ifndef GT_ACTIONS_ISTORE_H
 #define GT_ACTIONS_ISTORE_H
 
-#include "iactionscontroller.h"
-
 namespace gt::actions
 {
-class IStore : public IActionsController
+class IStore
 {
 public:
+    IStore()
+    {
+        init();
+    }
     virtual ~IStore() {}
+    virtual void init() {}
 };
 } // namespace gt::actions
-
 
 #endif
