@@ -17,16 +17,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16
         text: qsTr("Greeting Settings")
-        // onClicked: greetingSettingsDialog.open()
-        onClicked: testDialog.exec()
-    }
-
-    DialogView {
-        id: testDialog
-        contentItem: Rectangle {
-            anchors.fill: parent
-            color: "red"
-        }
+        onClicked: greetingSettingsDialog.exec()
     }
 
     GreetingSettingsDialog {
