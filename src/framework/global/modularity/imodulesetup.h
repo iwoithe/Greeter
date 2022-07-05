@@ -12,6 +12,7 @@ public:
     virtual std::string moduleName() const = 0;
     virtual void registerImports() {}
     virtual void registerResources() {}
+    // TODO: Add an option whether to make store instantiable or singleton
     virtual void registerStores() {}
     virtual void registerUiTypes() {}
 };
