@@ -1,6 +1,7 @@
 #include <QQmlEngine>
 
 #include "appshellmodule.h"
+#include "internal/appshellactionsstore.h"
 
 using namespace gt::appshell;
 
@@ -17,4 +18,9 @@ std::string AppShellModule::moduleName() const
 void AppShellModule::registerResources()
 {
     appshellInitResources();
+}
+
+void AppShellModule::registerStores()
+{
+    qmlRegisterSingletonInstance<AppShellActionsStore>("Greeter.AppShell", 0, 1, "AppShell", new AppShellActionsStore());
 }

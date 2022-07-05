@@ -10,7 +10,7 @@ class AppShellModule : public modularity::IModuleSetup
 public:
     std::string moduleName() const override;
     void registerResources() override;
-    // void registerUiTypes() override;
+    void registerStores() override;
 };
 
 } // namespace gt::appshell
