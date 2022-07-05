@@ -8,8 +8,8 @@ using namespace gt::greet;
 
 void GreetingStore::init()
 {
-    dispatcher()->reg(this, "set-greeting", [this](QVariantMap actionData) {this->setGreeting(actionData);});
-    dispatcher()->reg(this, "set-name", [this](QVariantMap actionData) {this->setName(actionData);});
+    dispatcher()->reg(this, "set-greeting", [this](QVariantMap actionData) {this->setGreeting(actionData["greeting"].toString());});
+    dispatcher()->reg(this, "set-name", [this](QVariantMap actionData) {this->setName(actionData["name"].toString());});
 }
 
 QString GreetingStore::greeting() const
@@ -17,9 +17,13 @@ QString GreetingStore::greeting() const
     return m_greeting;
 }
 
-void GreetingStore::setGreeting(QVariantMap actionData)
+void GreetingStore::setGreeting(const QString& greeting)
 {
-    m_greeting = actionData["greeting"].toString();
+    if (m_greeting == greeting) {
+        return;
+    }
+
+    m_greeting = greeting;
     emit greetingChanged();
 }
 
@@ -28,8 +32,12 @@ QString GreetingStore::name() const
     return m_name;
 }
 
-void GreetingStore::setName(QVariantMap actionData)
+void GreetingStore::setName(const QString& name)
 {
-    m_name = actionData["name"].toString();
+    if (m_name == name) {
+        return;
+    }
+
+    m_name = name;
     emit nameChanged();
 }

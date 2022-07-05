@@ -14,8 +14,8 @@ namespace gt::greet
 class GreetingStore : public QObject, public IStore
 {
     Q_OBJECT
-    Q_PROPERTY(QString greeting READ greeting NOTIFY greetingChanged)
-    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString greeting READ greeting WRITE setGreeting NOTIFY greetingChanged)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 public:
     GreetingStore()
     {
@@ -25,13 +25,12 @@ public:
     void init() override;
 
     QString greeting() const;
+    void setGreeting(const QString& greeting);
     QString name() const;
+    void setName(const QString& name);
 private:
     QString m_greeting = QString("Hello");
-    void setGreeting(QVariantMap greeting);
-
     QString m_name;
-    void setName(QVariantMap actionData);
 signals:
     void greetingChanged();
     void nameChanged();

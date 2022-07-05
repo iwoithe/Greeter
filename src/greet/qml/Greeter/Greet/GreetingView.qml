@@ -17,9 +17,14 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16
         text: qsTr("Greeting Settings")
-        onClicked: console.log(greetingSettingsDialog.execRet()["code"])
+        onClicked: {
+            var result = greetingSettingsDialog.execRet()
+            GreetingStore.greeting = result["greeting"]
+            GreetingStore.name = result["name"]
+        }
     }
 
+    // TODO: Should dialogs be opened from C++?
     GreetingSettingsDialog {
         id: greetingSettingsDialog
     }
