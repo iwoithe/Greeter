@@ -9,7 +9,10 @@ DialogView {
         id: contentItem
         Button {
             text: qsTr("Close with error")
-            onClicked: root.close()
+            onClicked: {
+                root.ret = {"code": -1}
+                root.close()
+            }
         }
     }
 }

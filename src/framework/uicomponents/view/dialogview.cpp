@@ -77,6 +77,21 @@ void DialogView::setContentItem(QQuickItem* item)
     emit contentItemChanged();
 }
 
+QVariantMap DialogView::ret() const
+{
+    return m_ret;
+}
+
+void DialogView::setRet(const QVariantMap& ret)
+{
+    if (m_ret == ret) {
+        return;
+    }
+
+    m_ret = ret;
+    emit retChanged();
+}
+
 QString DialogView::title() const
 {
     return m_title;
