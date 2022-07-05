@@ -6,6 +6,7 @@ namespace gt::actions
 class IStore
 {
 public:
+    // TODO: Is there a better way instead of typing the following in every subclass?
     IStore()
     {
         init();
