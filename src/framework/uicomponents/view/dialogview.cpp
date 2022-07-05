@@ -25,6 +25,8 @@ void DialogView::close()
     if (m_loop.isRunning()) {
         m_loop.exit();
     }
+
+    m_view->close();
 }
 
 void DialogView::exec()
@@ -35,11 +37,11 @@ void DialogView::exec()
 
 void DialogView::open()
 {
-    QQuickView *view = new QQuickView(qmlEngine(this), nullptr);
+    m_view = new QQuickView(qmlEngine(this), nullptr);
     
-    view->setTitle(m_title);
-    view->setContent(QUrl(), nullptr, m_contentItem);
-    view->show();
+    m_view->setTitle(m_title);
+    m_view->setContent(QUrl(), nullptr, m_contentItem);
+    m_view->show();
 
     qApp->installEventFilter(this);
     // TODO: Add signals

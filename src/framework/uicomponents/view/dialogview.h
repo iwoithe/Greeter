@@ -4,6 +4,7 @@
 #include <QEventLoop>
 #include <QObject>
 #include <QQuickItem>
+#include <QQuickView>
 #include <QString>
 
 namespace gt::uicomponents
@@ -39,6 +40,7 @@ private:
     QString m_title = QString("Dialog");
 
     QEventLoop m_loop;
+    QQuickView* m_view;
 signals:
     void parentItemChanged();
     void contentItemChanged();
