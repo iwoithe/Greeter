@@ -12,7 +12,9 @@ public:
     virtual std::string moduleName() const = 0;
     virtual void registerImports() {}
     virtual void registerResources() {}
-    // TODO: Add an option whether to make store instantiable or singleton
+    // As a general rule, singletons are used for action stores while types are used for data stores
+    // singletons -> use qmlRegisterSingletonInstance
+    // types -> use qmlRegisterType
     virtual void registerStores() {}
     virtual void registerUiTypes() {}
 };

@@ -6,9 +6,14 @@ import Greeter.UiComponents 0.1
 
 Item {
     id: root
-    Text {
+
+    GreetingStore {
+        id: model
+    }
+
+    Label {
         anchors.centerIn: parent
-        text: GreetingStore.greeting + ", " + GreetingStore.name;
+        text: model.greeting + ", " + model.name;
     }
 
     Button {
@@ -19,13 +24,14 @@ Item {
         text: qsTr("Greeting Settings")
         onClicked: {
             var result = greetingSettingsDialog.execRet()
-            GreetingStore.greeting = result["greeting"]
-            GreetingStore.name = result["name"]
+            model.greeting = result["greeting"]
+            model.name = result["name"]
         }
     }
 
     // TODO: Should dialogs be opened from C++?
     GreetingSettingsDialog {
         id: greetingSettingsDialog
+        greetingSettingsModel: model
     }
 }

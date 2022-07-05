@@ -23,5 +23,5 @@ void GreetModule::registerResources()
 
 void GreetModule::registerStores()
 {
-    qmlRegisterSingletonInstance("Greeter.Greet.Stores", 0, 1, "GreetingStore", new GreetingStore());
+    qmlRegisterType<GreetingStore>("Greeter.Greet.Stores", 0, 1, "GreetingStore");
 }

@@ -1,12 +1,14 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import Greeter.Greet.Stores 0.1
 import Greeter.UiComponents 0.1
 
 DialogView {
     id: root
     title: qsTr("Greeting Settings")
+
+    property var greetingSettingsModel
+
     contentItem: Item {
         id: contentItem
         anchors.fill: parent
@@ -21,7 +23,7 @@ DialogView {
                     id: greetingTextField
                     Layout.fillWidth: true
                     placeholderText: qsTr("The greeting")
-                    text: GreetingStore.greeting
+                    text: greetingSettingsModel.greeting
                 }
             }
 
@@ -34,7 +36,7 @@ DialogView {
                     id: nameTextField
                     Layout.fillWidth: true
                     placeholderText: qsTr("Your name")
-                    text: GreetingStore.name
+                    text: greetingSettingsModel.name
                 }
             }
 
