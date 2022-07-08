@@ -24,8 +24,10 @@ Item {
         text: qsTr("Greeting Settings")
         onClicked: {
             var result = greetingSettingsDialog.execRet()
-            model.greeting = result["greeting"]
-            model.name = result["name"]
+            if (result["code"] == 0) {
+                model.greeting = result["greeting"]
+                model.name = result["name"]
+            }
         }
     }
 
