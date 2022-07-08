@@ -8,6 +8,10 @@
 #include <QString>
 #include <QVariantMap>
 
+#include "global/ret.h"
+
+using namespace gt;
+
 namespace gt::uicomponents
 {
 class DialogView : public QObject
@@ -20,6 +24,8 @@ class DialogView : public QObject
     Q_PROPERTY(QVariantMap ret READ ret WRITE setRet NOTIFY retChanged)
 
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
+    Q_PROPERTY(int width READ width WRITE setWidth NOTIFY widthChanged)
+    Q_PROPERTY(int height READ height WRITE setHeight NOTIFY heightChanged)
 public:
     explicit DialogView(QQuickItem* parent = nullptr);
     ~DialogView() override = default;
@@ -41,6 +47,12 @@ public:
     QString title() const;
     void setTitle(const QString& title);
 
+    int width() const;
+    void setWidth(const int& w);
+
+    int height() const;
+    void setHeight(const int& h);
+
 private:
     QQuickItem* m_parentItem;
     QQuickItem* m_contentItem;
@@ -48,6 +60,8 @@ private:
     QVariantMap m_ret;
 
     QString m_title = QString("Dialog");
+    int m_width = 800;
+    int m_height = 600;
 
     QEventLoop m_loop;
     QQuickView* m_view;
@@ -58,6 +72,8 @@ signals:
     void retChanged();
 
     void titleChanged();
+    void widthChanged();
+    void heightChanged();
 };
 } // namespace gt::uicomponents
 

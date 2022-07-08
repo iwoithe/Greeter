@@ -60,6 +60,9 @@ void DialogView::open()
     m_view = new QQuickView(qmlEngine(this), nullptr);
     
     m_view->setTitle(m_title);
+    m_view->setResizeMode(QQuickView::SizeRootObjectToView);
+    m_view->setWidth(m_width);
+    m_view->setHeight(m_height);
     m_view->setContent(QUrl(), nullptr, m_contentItem);
     m_view->show();
 
@@ -125,4 +128,34 @@ void DialogView::setTitle(const QString& title)
 
     m_title = title;
     emit titleChanged();
+}
+
+int DialogView::width() const
+{
+    return m_width;
+}
+
+void DialogView::setWidth(const int& w)
+{
+    if (m_width == w) {
+        return;
+    }
+
+    m_width = w;
+    emit widthChanged();
+}
+
+int DialogView::height() const
+{
+    return m_height;
+}
+
+void DialogView::setHeight(const int& h)
+{
+    if (m_height == h) {
+        return;
+    }
+
+    m_height = h;
+    emit heightChanged();
 }

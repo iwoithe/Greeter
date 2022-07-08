@@ -5,6 +5,8 @@ import Greeter.UiComponents 0.1
 
 DialogView {
     id: root
+    width: 300
+    height: 150
     title: qsTr("Greeting Settings")
 
     property var greetingSettingsModel
