@@ -34,7 +34,7 @@ int AppShell::run(int argc, char** argv)
 
     qmlAppEngine()->addImportPath(":/qml");
 
-    const QUrl url(QStringLiteral("qrc:/qml") + "/main.qml");
+    const QUrl url(QStringLiteral("qrc:/qml") + "/Main.qml");
     qmlAppEngine()->load(url);
 
     QVariantMap nameData;
