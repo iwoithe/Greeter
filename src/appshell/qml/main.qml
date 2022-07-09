@@ -18,6 +18,11 @@ ApplicationWindow {
             id: helpMenu
             title: qsTr("Help")
             Action {
+                text: qsTr("About")
+                onTriggered: AppShell.about()
+            }
+            
+            Action {
                 text: qsTr("About Qt")
                 onTriggered: AppShell.aboutQt()
             }

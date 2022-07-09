@@ -21,6 +21,7 @@ public:
 
     void init() override;
     
+    Q_INVOKABLE void about();
     Q_INVOKABLE void aboutQt();
 };
 } // gt::greet

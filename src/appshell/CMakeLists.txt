@@ -13,4 +13,10 @@ set(MODULE_QRC
     ${CMAKE_CURRENT_LIST_DIR}/appshell.qrc
 )
 
+set(MODULE_LINK
+    actions
+    global
+    interactive
+)
+
 include(${PROJECT_SOURCE_DIR}/build/module.cmake)
