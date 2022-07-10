@@ -53,7 +53,7 @@ void GreetingStore::showGreetingSettings()
 {
     Interactive::Params params = {{"sync", true},
                                   {"greetingSettingsModel", QVariant::fromValue(this)}};
-    QVariantMap result = Interactive::instance()->openDialog("qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml", params);
+    Interactive::Result result = Interactive::instance()->openDialog("qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml", params);
     
     if (result["code"].toInt() != static_cast<int>(Ret::Code::Ok)) {
         return;
