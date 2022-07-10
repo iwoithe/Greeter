@@ -51,9 +51,7 @@ DialogView {
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             text: qsTr("Cancel")
-            onClicked: root.close({
-                "code": 1
-            })
+            onClicked: root.close(1)
         }
 
         Button {
