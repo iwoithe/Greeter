@@ -1,6 +1,16 @@
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <type_traits>
+#include <variant>
+#include <vector>
+#include <iostream>
+
 #include <QQmlComponent>
-#include <QUrl>
 #include <QString>
+#include <QUrl>
+#include <QVariant>
+
 #include "global/engines.h"
 #include "uicomponents/view/dialogview.h"
 
@@ -26,6 +36,15 @@ Ret Interactive::openDialog(const std::string& path, Params& params)
         if (path == p) {
             QQmlComponent* component = new QQmlComponent(qmlAppEngine(), QUrl(QString::fromStdString(path)));
             DialogView* dialog = qobject_cast<DialogView*>(component->create());
+
+            for (auto& [ name, par ] : params) {
+                // std::visit([name, dialog](auto&& c) {
+                //     std::cout << c << std::endl;
+                //     dialog->setProperty(name.c_str(), QVariant::fromValue(c);
+                // }, par);
+                dialog->setProperty(name.c_str(), par);
+            }
+
             dialog->open();
         }
     }
