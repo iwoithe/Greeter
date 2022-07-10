@@ -51,6 +51,10 @@ void GreetingStore::setName(const QString& name)
 
 void GreetingStore::showGreetingSettings()
 {
+    // TODO: Fix the following errors
+    // - TypeError: Cannot read property 'greeting' of undefined
+    // - TypeError: Cannot read property 'name' of undefined
+    // Still works but would be good to fix
     Interactive::Params params = {{"sync", true},
                                   {"greetingSettingsModel", QVariant::fromValue(this)}};
     Interactive::Result result = Interactive::instance()->openDialog("qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml", params);
