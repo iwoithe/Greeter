@@ -4,6 +4,7 @@
 #include <vector>
 
 #include <QObject>
+#include <QVariantMap>
 
 #include "../iinteractive.h"
 
@@ -15,7 +16,7 @@ class Interactive : public QObject, public IInteractive
 public:
     static Interactive* instance();
     void regDialog(const std::string& path) override;
-    Ret openDialog(const std::string& path, Params& params) override;
+    QVariantMap openDialog(const std::string& path, Params& params) override;
 private:
     std::vector<std::string> m_dialogs;
 };

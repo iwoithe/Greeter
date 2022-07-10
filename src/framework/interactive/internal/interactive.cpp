@@ -30,8 +30,9 @@ void Interactive::regDialog(const std::string& path)
     m_dialogs.push_back(path);
 }
 
-Ret Interactive::openDialog(const std::string& path, Params& params)
+QVariantMap Interactive::openDialog(const std::string& path, Params& params)
 {
+    QVariantMap result;
     for (std::string p : m_dialogs) {
         if (path == p) {
             QQmlComponent* component = new QQmlComponent(qmlAppEngine(), QUrl(QString::fromStdString(path)));
@@ -45,9 +46,15 @@ Ret Interactive::openDialog(const std::string& path, Params& params)
                 dialog->setProperty(name.c_str(), par);
             }
 
-            dialog->open();
+            if (dialog->sync()) {
+                result = dialog->exec();
+            } else {
+                dialog->open();
+            }
+
+            break;
         }
     }
 
-    return Ret(Ret::Code::Ok);
+    return result;
 }

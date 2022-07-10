@@ -24,7 +24,8 @@ public:
     using Params = std::map<std::string, QVariant>;
     // using Params = std::map<std::string, std::any>;
     virtual void regDialog(const std::string& path) {}
-    virtual Ret openDialog(const std::string& path, Params& params) {return Ret(Ret::Code::Undefined);}
+    // TODO: Use Ret and Val instead of Qt types
+    virtual QVariantMap openDialog(const std::string& path, Params& params) {return QVariantMap();}
 };
 } // gt::interactive
 

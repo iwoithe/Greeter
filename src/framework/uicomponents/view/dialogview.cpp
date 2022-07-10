@@ -8,8 +8,6 @@
 // TODO: Remove engines.h
 // #include "global/engines.h"
 #include <QtQml>
-#include "global/ret.h"
-
 
 using namespace gt::uicomponents;
 
@@ -30,6 +28,7 @@ void DialogView::close()
 
 void DialogView::close(const QVariantMap& ret)
 {
+    // r.setCode(retMap["code"].toInt());
     setRet(ret);
 
     if (m_loop.isRunning()) {
@@ -39,19 +38,12 @@ void DialogView::close(const QVariantMap& ret)
     m_view->close();
 }
 
-void DialogView::exec()
+QVariantMap DialogView::exec()
 {
     // TODO: Fix "QEventLoop::exec: instance XXX has already called exec()"
 
     open();
     m_loop.exec();
-}
-
-QVariantMap DialogView::execRet()
-{
-    open();
-    m_loop.exec();
-    // TODO: Convert to gt::Ret
     return m_ret;
 }
 
@@ -113,6 +105,21 @@ void DialogView::setRet(const QVariantMap& ret)
 
     m_ret = ret;
     emit retChanged();
+}
+
+bool DialogView::sync() const
+{
+    return m_sync;
+}
+
+void DialogView::setSync(const bool& sync)
+{
+    if (m_sync == sync) {
+        return;
+    }
+
+    m_sync = sync;
+    emit syncChanged();
 }
 
 QString DialogView::title() const

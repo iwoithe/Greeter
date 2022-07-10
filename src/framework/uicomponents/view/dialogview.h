@@ -22,7 +22,8 @@ class DialogView : public QObject
     Q_PROPERTY(QQuickItem* contentItem READ contentItem WRITE setContentItem NOTIFY contentItemChanged)
 
     Q_PROPERTY(QVariantMap ret READ ret WRITE setRet NOTIFY retChanged)
-
+    Q_PROPERTY(bool sync READ sync WRITE setSync NOTIFY syncChanged)
+    
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(int width READ width WRITE setWidth NOTIFY widthChanged)
     Q_PROPERTY(int height READ height WRITE setHeight NOTIFY heightChanged)
@@ -32,8 +33,7 @@ public:
 
     Q_INVOKABLE void close();
     Q_INVOKABLE void close(const QVariantMap& ret);
-    Q_INVOKABLE void exec();
-    Q_INVOKABLE QVariantMap execRet();
+    Q_INVOKABLE QVariantMap exec();
     Q_INVOKABLE void open();
 
     QQuickItem* parentItem() const;
@@ -44,6 +44,9 @@ public:
     QVariantMap ret() const;
     void setRet(const QVariantMap& ret);
 
+    bool sync() const;
+    void setSync(const bool& sync);
+    
     QString title() const;
     void setTitle(const QString& title);
 
@@ -58,6 +61,7 @@ private:
     QQuickItem* m_contentItem;
 
     QVariantMap m_ret;
+    bool m_sync = false;
 
     QString m_title = QString("Dialog");
     int m_width = 800;
@@ -70,6 +74,7 @@ signals:
     void contentItemChanged();
 
     void retChanged();
+    void syncChanged();
 
     void titleChanged();
     void widthChanged();

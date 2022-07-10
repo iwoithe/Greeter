@@ -5,6 +5,9 @@
 #include <map>
 #include <string>
 
+#include <QObject>
+#include <QMetaType>
+
 namespace gt
 {
 class Ret
@@ -23,6 +26,13 @@ public:
     explicit Ret(int c);
     explicit Ret(Code c);
     explicit Ret(const int& c, const std::string& text);
+
+    inline Ret& operator=(int c) { m_code = c; return *this; }
+    inline Ret& operator=(bool arg) { m_code = arg ? int(Code::Ok) : int(Code::UnknownError); return *this; }
+    inline operator bool() const {
+        return isSuccess();
+    }
+    inline bool operator!() const { return !isSuccess(); }
 
     int code() const;
     void setCode(int c);

@@ -22,18 +22,6 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 16
         text: qsTr("Greeting Settings")
-        onClicked: {
-            var result = greetingSettingsDialog.execRet()
-            if (result["code"] == 0) {
-                model.greeting = result["greeting"]
-                model.name = result["name"]
-            }
-        }
-    }
-
-    // TODO: Should dialogs be opened from C++?
-    GreetingSettingsDialog {
-        id: greetingSettingsDialog
-        greetingSettingsModel: model
+        onClicked: model.showGreetingSettings()
     }
 }

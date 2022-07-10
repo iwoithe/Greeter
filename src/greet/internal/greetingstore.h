@@ -28,6 +28,8 @@ public:
     void setGreeting(const QString& greeting);
     QString name() const;
     void setName(const QString& name);
+
+    Q_INVOKABLE void showGreetingSettings();
 private:
     QString m_greeting = QString("Hello");
     QString m_name;
