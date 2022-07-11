@@ -32,6 +32,7 @@ void DialogView::close(const QVariantMap& ret)
     }
 
     m_view->close();
+    qApp->removeEventFilter(this);
 }
 
 QVariantMap DialogView::exec()
