@@ -1,0 +1,3 @@
+module Greeter.AppShell
+AboutDialog 0.1 AboutDialog.qml
+GTMenuBar 0.1 GTMenuBar.qml

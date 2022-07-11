@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/Main.qml</file>
-        <file>qml/AboutDialog.qml</file>
+        <file>qml/Greeter/AppShell/AboutDialog.qml</file>
+        <file>qml/Greeter/AppShell/GTMenuBar.qml</file>
+        <file>qml/Greeter/AppShell/qmldir</file>
     </qresource>
 </RCC>

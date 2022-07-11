@@ -10,7 +10,7 @@ using namespace gt::appshell;
 
 void AppShellActionsStore::init()
 {
-    Interactive::instance()->regDialog("greeter://appshell/about", "qrc:/qml/AboutDialog.qml");
+    Interactive::instance()->regDialog("greeter://appshell/about", "qrc:/qml/Greeter/AppShell/AboutDialog.qml");
 }
 
 void AppShellActionsStore::about()
