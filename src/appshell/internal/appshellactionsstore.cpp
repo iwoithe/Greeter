@@ -11,7 +11,6 @@ using namespace gt::appshell;
 void AppShellActionsStore::init()
 {
     Interactive::instance()->regDialog("greeter://appshell/about", "qrc:/qml/AboutDialog.qml");
-    dispatcher()->reg(this, "about-qt", [this](QVariantMap actionData) {this->aboutQt();});
 }
 
 void AppShellActionsStore::about()
