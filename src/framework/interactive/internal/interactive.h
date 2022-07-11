@@ -4,7 +4,6 @@
 #include <vector>
 
 #include <QObject>
-#include <QVariantMap>
 
 #include "../iinteractive.h"
 
@@ -15,10 +14,10 @@ class Interactive : public QObject, public IInteractive
     Q_OBJECT
 public:
     static Interactive* instance();
-    void regDialog(const std::string& path) override;
-    QVariantMap openDialog(const std::string& path, Params& params) override;
+    void regDialog(const std::string& path, const std::string& resourcePath) override;
+    Result openDialog(const std::string& path, Params& params) override;
 private:
-    std::vector<std::string> m_dialogs;
+    std::map<std::string, std::string> m_dialogs;
 };
 } // gt::interactive
 

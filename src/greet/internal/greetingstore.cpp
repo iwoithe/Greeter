@@ -13,7 +13,7 @@ using namespace gt::interactive;
 
 void GreetingStore::init()
 {
-    Interactive::instance()->regDialog("qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml");
+    Interactive::instance()->regDialog("greeter://greet/greetingsettings", "qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml");
 
     dispatcher()->reg(this, "set-greeting", [this](QVariantMap actionData) {this->setGreeting(actionData["greeting"].toString());});
     dispatcher()->reg(this, "set-name", [this](QVariantMap actionData) {this->setName(actionData["name"].toString());});
@@ -57,7 +57,7 @@ void GreetingStore::showGreetingSettings()
     // Still works but would be good to fix
     Interactive::Params params = {{"sync", true},
                                   {"greetingSettingsModel", QVariant::fromValue(this)}};
-    Interactive::Result result = Interactive::instance()->openDialog("qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml", params);
+    Interactive::Result result = Interactive::instance()->openDialog("greeter://greet/greetingsettings", params);
     
     if (result["code"].toInt() != static_cast<int>(Ret::Code::Ok)) {
         return;

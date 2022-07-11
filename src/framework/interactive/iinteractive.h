@@ -23,7 +23,7 @@ public:
     // NOTE: Using a QVariant for now
     using Params = std::map<std::string, QVariant>;
     // using Params = std::map<std::string, std::any>;
-    virtual void regDialog(const std::string& path) {}
+    virtual void regDialog(const std::string& path, const std::string& resourcePath) {}
     // TODO: Use Ret and Val instead of Qt types
     using Result = QVariantMap;
     virtual Result openDialog(const std::string& path, Params& params) {return Result();}

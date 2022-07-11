@@ -25,17 +25,19 @@ Interactive* Interactive::instance()
     return &i;
 }
 
-void Interactive::regDialog(const std::string& path)
+void Interactive::regDialog(const std::string& path, const std::string& resourcePath)
 {
-    m_dialogs.push_back(path);
+    m_dialogs.insert({path, resourcePath});
 }
 
 Interactive::Result Interactive::openDialog(const std::string& path, Params& params)
 {
     Interactive::Result result;
-    for (std::string p : m_dialogs) {
+    for (auto iter = m_dialogs.begin(); iter != m_dialogs.end(); ++iter) {
+        std::string p = iter->first;
+        std::string rp = iter->second;
         if (path == p) {
-            QQmlComponent* component = new QQmlComponent(qmlAppEngine(), QUrl(QString::fromStdString(path)));
+            QQmlComponent* component = new QQmlComponent(qmlAppEngine(), QUrl(QString::fromStdString(rp)));
             DialogView* dialog = qobject_cast<DialogView*>(component->create());
 
             for (auto& [ name, par ] : params) {
