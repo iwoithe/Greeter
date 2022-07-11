@@ -16,7 +16,7 @@ void AppShellActionsStore::init()
 
 void AppShellActionsStore::about()
 {
-    Interactive::Params params = {{"sync", false}};
+    Interactive::Params params;
     Interactive::instance()->openDialog("greeter://appshell/about", params);
 }
 
