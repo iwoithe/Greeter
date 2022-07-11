@@ -13,6 +13,7 @@ ApplicationWindow {
 
     menuBar: MenuBar {
         id: menuBar
+        
         Menu {
             id: fileMenu
             title: qsTr("File")
@@ -22,6 +23,7 @@ ApplicationWindow {
                 onTriggered: Qt.quit()
             }
         }
+
         Menu {
             id: editMenu
             title: qsTr("Edit")
@@ -32,10 +34,11 @@ ApplicationWindow {
                 onTriggered: AppShell.showGreetingSettings()
             }
         }
+
         Menu {
             id: helpMenu
             title: qsTr("Help")
-            
+
             Action {
                 text: qsTr("About")
                 onTriggered: AppShell.about()
