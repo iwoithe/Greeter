@@ -50,6 +50,9 @@ void DialogView::open()
     
     m_view->setTitle(m_title);
     m_view->setResizeMode(QQuickView::SizeRootObjectToView);
+    // TODO: Add properties to control the minimum and maximum size of the dialog
+    m_view->setMinimumWidth(m_width);
+    m_view->setMinimumHeight(m_height);
     m_view->setWidth(m_width);
     m_view->setHeight(m_height);
     m_view->setContent(QUrl(), nullptr, m_contentItem);
