@@ -13,7 +13,15 @@ ApplicationWindow {
 
     menuBar: MenuBar {
         id: menuBar
-        // TODO: Add "File -> Quit"
+        Menu {
+            id: fileMenu
+            title: qsTr("File")
+
+            Action {
+                text: qsTr("Quit")
+                onTriggered: Qt.quit()
+            }
+        }
         Menu {
             id: editMenu
             title: qsTr("Edit")
