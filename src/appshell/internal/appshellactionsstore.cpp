@@ -23,3 +23,8 @@ void AppShellActionsStore::aboutQt()
 {
     qApp->aboutQt();
 }
+
+void AppShellActionsStore::showGreetingSettings()
+{
+    dispatcher()->dispatch("greeting-settings", QVariantMap());
+}

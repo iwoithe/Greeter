@@ -15,6 +15,15 @@ ApplicationWindow {
         id: menuBar
         // TODO: Add "File -> Quit"
         Menu {
+            id: editMenu
+            title: qsTr("Edit")
+            Action {
+                // TODO: Show or edit greeting settings?
+                text: qsTr("Show greeting settings")
+                onTriggered: AppShell.showGreetingSettings()
+            }
+        }
+        Menu {
             id: helpMenu
             title: qsTr("Help")
             Action {

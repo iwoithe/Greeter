@@ -15,8 +15,10 @@ void GreetingStore::init()
 {
     Interactive::instance()->regDialog("greeter://greet/greetingsettings", "qrc:/qml/Greeter/Greet/GreetingSettingsDialog.qml");
 
+    // TODO: Should actionData be renamed to payload?
     dispatcher()->reg(this, "set-greeting", [this](QVariantMap actionData) {this->setGreeting(actionData["greeting"].toString());});
     dispatcher()->reg(this, "set-name", [this](QVariantMap actionData) {this->setName(actionData["name"].toString());});
+    dispatcher()->reg(this, "greeting-settings", [this](QVariantMap actionData) {this->showGreetingSettings();});
 }
 
 QString GreetingStore::greeting() const

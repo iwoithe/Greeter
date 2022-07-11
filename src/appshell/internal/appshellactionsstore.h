@@ -23,6 +23,8 @@ public:
     
     Q_INVOKABLE void about();
     Q_INVOKABLE void aboutQt();
+
+    Q_INVOKABLE void showGreetingSettings();
 };
 } // gt::greet
 
