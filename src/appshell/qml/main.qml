@@ -25,6 +25,7 @@ ApplicationWindow {
         Menu {
             id: editMenu
             title: qsTr("Edit")
+
             Action {
                 // TODO: Show or edit greeting settings?
                 text: qsTr("Show greeting settings")
@@ -34,6 +35,7 @@ ApplicationWindow {
         Menu {
             id: helpMenu
             title: qsTr("Help")
+            
             Action {
                 text: qsTr("About")
                 onTriggered: AppShell.about()
