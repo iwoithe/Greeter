@@ -13,7 +13,7 @@ ApplicationWindow {
 
     menuBar: MenuBar {
         id: menuBar
-        
+
         Menu {
             id: fileMenu
             title: qsTr("File")
@@ -28,6 +28,7 @@ ApplicationWindow {
             id: editMenu
             title: qsTr("Edit")
 
+            // TODO: Why does the menu stay open until the dialog is closed?
             Action {
                 // TODO: Show or edit greeting settings?
                 text: qsTr("Show greeting settings")
