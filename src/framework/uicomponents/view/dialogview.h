@@ -14,6 +14,7 @@ using namespace gt;
 
 namespace gt::uicomponents
 {
+// TODO: Inherit from popup view
 class DialogView : public QObject
 {
     Q_OBJECT
