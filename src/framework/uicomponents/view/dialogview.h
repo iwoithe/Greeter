@@ -32,6 +32,7 @@ public:
     explicit DialogView(QQuickItem* parent = nullptr);
     ~DialogView() override = default;
 
+    Q_INVOKABLE void close();
     Q_INVOKABLE void close(const int& code);
     Q_INVOKABLE void close(const QVariantMap& ret);
     Q_INVOKABLE QVariantMap exec();

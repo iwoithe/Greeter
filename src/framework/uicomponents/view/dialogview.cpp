@@ -17,22 +17,27 @@ DialogView::DialogView(QQuickItem* parent) : QObject(parent)
     m_parentItem = parent;
 }
 
-void DialogView::close(const int& code)
+void DialogView::close()
 {
-    QVariantMap result = {{"code", code}};
-    close(result);
-}
-
-void DialogView::close(const QVariantMap& ret)
-{
-    setRet(ret);
-
     if (m_loop.isRunning()) {
         m_loop.exit();
     }
 
     m_view->close();
     qApp->removeEventFilter(this);
+}
+
+void DialogView::close(const int& code)
+{
+    QVariantMap result = {{"code", code}};
+    setRet(result);
+    close();
+}
+
+void DialogView::close(const QVariantMap& ret)
+{
+    setRet(ret);
+    close();
 }
 
 QVariantMap DialogView::exec()
