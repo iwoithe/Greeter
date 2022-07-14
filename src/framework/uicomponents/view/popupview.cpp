@@ -286,8 +286,9 @@ bool PopupView::eventFilter(QObject* watched, QEvent* event)
         QRect viewRect = m_view->geometry();
         bool contains = viewRect.contains(QCursor::pos());
         if (!contains) {
-            QPointF localPos = parentItem()->mapFromGlobal(QCursor::pos());
-            QRectF parentRect = QRectF(0, 0, parentItem()->width(), parentItem()->height());
+            QQuickItem* parent = parentItem();
+            QPointF localPos = parent->mapFromGlobal(QCursor::pos());
+            QRectF parentRect = QRectF(0, 0, parent->width(), parent->height());
             if (!parentRect.contains(localPos)) {
                 close(static_cast<int>(Ret::Code::Cancel));
             }
