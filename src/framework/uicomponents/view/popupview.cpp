@@ -6,6 +6,7 @@
 #include <QPointF>
 #include <QQuickView>
 #include <QRect>
+#include <QRectF>
 #include <QUrl>
 #include <QWindow>
 
@@ -285,7 +286,11 @@ bool PopupView::eventFilter(QObject* watched, QEvent* event)
         QRect viewRect = m_view->geometry();
         bool contains = viewRect.contains(QCursor::pos());
         if (!contains) {
-            close(static_cast<int>(Ret::Code::Cancel));
+            QPointF localPos = parentItem()->mapFromGlobal(QCursor::pos());
+            QRectF parentRect = QRectF(0, 0, parentItem()->width(), parentItem()->height());
+            if (!parentRect.contains(localPos)) {
+                close(static_cast<int>(Ret::Code::Cancel));
+            }
         }
     }
 
