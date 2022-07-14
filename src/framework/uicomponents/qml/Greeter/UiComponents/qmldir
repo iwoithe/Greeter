@@ -1,1 +1,3 @@
 module Greeter.UiComponents
+GTPopup 0.1 GTPopup.qml
+GTPopupBackground 0.1 GTPopupBackground.qml
