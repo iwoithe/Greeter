@@ -80,6 +80,10 @@ void PopupView::close(const QVariantMap& ret)
 
 QVariantMap PopupView::exec()
 {
+    if (m_loop.isRunning()) {
+        return {{"code", static_cast<int>(Ret::Code::Undefined)}};
+    }
+
     open();
     m_loop.exec();
     return m_ret;
