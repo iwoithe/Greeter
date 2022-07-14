@@ -2,8 +2,10 @@
 
 #include <QApplication>
 #include <QColor>
+#include <QCursor>
 #include <QPointF>
 #include <QQuickView>
+#include <QRect>
 #include <QUrl>
 #include <QWindow>
 
@@ -275,4 +277,17 @@ void PopupView::setShowArrow(const bool& showArrow)
 
     m_showArrow = showArrow;
     emit showArrowChanged();
+}
+
+bool PopupView::eventFilter(QObject* watched, QEvent* event)
+{
+    if (event->type() == QEvent::MouseButtonPress) {
+        QRect viewRect = m_view->geometry();
+        bool contains = viewRect.contains(QCursor::pos());
+        if (!contains) {
+            close(static_cast<int>(Ret::Code::Cancel));
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }

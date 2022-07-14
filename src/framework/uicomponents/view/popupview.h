@@ -1,6 +1,7 @@
 #ifndef GT_UICOMPONENTS_POPUPVIEW_H
 #define GT_UICOMPONENTS_POPUPVIEW_H
 
+#include <QEvent>
 #include <QEventLoop>
 #include <QObject>
 #include <QQuickItem>
@@ -81,6 +82,9 @@ public:
 
     bool showArrow() const;
     void setShowArrow(const bool& showArrow);
+
+protected:
+    bool eventFilter(QObject* watched, QEvent* event) override;
 
 private:
     QEventLoop m_loop;

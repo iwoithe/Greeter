@@ -22,6 +22,10 @@ ApplicationWindow {
         text: qsTr("Open Popup")
         onClicked: {
             var result = popupView.exec()
+            if (result["code"] != 0) {
+                return
+            }
+            
             console.log(result["string"])
         }
 
@@ -37,7 +41,7 @@ ApplicationWindow {
                 Button {
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    y: popupView.padding
+                    y: popupView.padding + 8
                     text: qsTr("Some button")
                     onClicked: popupView.close({
                         "code": 0,
