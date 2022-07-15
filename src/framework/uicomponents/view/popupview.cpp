@@ -291,7 +291,7 @@ bool PopupView::eventFilter(QObject* watched, QEvent* event)
         close(static_cast<int>(Ret::Code::Cancel));
     }
 
-    if (event->type() == QEvent::MouseButtonPress) {
+    if (event->type() == QEvent::MouseButtonPress && !isDialog()) {
         QRect viewRect = m_view->geometry();
         QPoint cursorPos = QCursor::pos();
         bool contains = viewRect.contains(cursorPos);
