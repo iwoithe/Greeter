@@ -305,5 +305,11 @@ bool PopupView::eventFilter(QObject* watched, QEvent* event)
         }
     }
 
+    if (event->type() == QEvent::ApplicationStateChange && !isDialog()) {
+        if (qApp->applicationState() == Qt::ApplicationInactive) {
+            close(static_cast<int>(Ret::Code::Cancel));
+        }
+    }
+
     return QObject::eventFilter(watched, event);
 }
