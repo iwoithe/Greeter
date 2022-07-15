@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QColor>
 #include <QCursor>
+#include <QPoint>
 #include <QPointF>
 #include <QQuickView>
 #include <QRect>
@@ -288,10 +289,11 @@ bool PopupView::eventFilter(QObject* watched, QEvent* event)
 {
     if (event->type() == QEvent::MouseButtonPress) {
         QRect viewRect = m_view->geometry();
-        bool contains = viewRect.contains(QCursor::pos());
+        QPoint cursorPos = QCursor::pos();
+        bool contains = viewRect.contains(cursorPos);
         if (!contains) {
             QQuickItem* parent = parentItem();
-            QPointF localPos = parent->mapFromGlobal(QCursor::pos());
+            QPointF localPos = parent->mapFromGlobal(cursorPos);
             QRectF parentRect = QRectF(0, 0, parent->width(), parent->height());
             if (!parentRect.contains(localPos)) {
                 close(static_cast<int>(Ret::Code::Cancel));
