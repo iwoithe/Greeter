@@ -287,6 +287,10 @@ void PopupView::setShowArrow(const bool& showArrow)
 
 bool PopupView::eventFilter(QObject* watched, QEvent* event)
 {
+    if (event->type() == QEvent::Close) {
+        close(static_cast<int>(Ret::Code::Cancel));
+    }
+
     if (event->type() == QEvent::MouseButtonPress) {
         QRect viewRect = m_view->geometry();
         QPoint cursorPos = QCursor::pos();
