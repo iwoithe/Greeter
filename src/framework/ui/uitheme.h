@@ -94,6 +94,13 @@ private:
 signals:
     void themeChanged();
 };
+
+static UiTheme* uitheme()
+{
+    // TODO: Is putting the following code in UiTheme::instance() and returning the result of UiTheme::instance() better?
+    static UiTheme ut;
+    return &ut;
+}
 }
 
 #endif
