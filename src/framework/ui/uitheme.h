@@ -78,17 +78,18 @@ private:
 
     bool m_isDark;
 
-    QColor m_accentColor;
-    QColor m_backgroundPrimaryColor;
-    QColor m_backgroundSecondaryColor;
-    QColor m_buttonColor;
-    QColor m_componentColor;
-    QColor m_focusColor;
-    QColor m_fontPrimaryColor;
-    QColor m_fontSecondaryColor;
-    QColor m_linkColor;
-    QColor m_popupBackgroundColor;
-    QColor m_strokeColor;
+    // See todo above init() declaration
+    QColor m_accentColor = "#A4C3FF";
+    QColor m_backgroundPrimaryColor = "#FFFFFF";
+    QColor m_backgroundSecondaryColor = "#F3F3F3";
+    QColor m_buttonColor = "#DBDBDB";
+    QColor m_componentColor = "#E9E9E9";
+    QColor m_focusColor = "#C2D7FF";
+    QColor m_fontPrimaryColor = "#000000";
+    QColor m_fontSecondaryColor = "#A5A5A5";
+    QColor m_linkColor = "#0057FF";
+    QColor m_popupBackgroundColor = "#F3F3F3";
+    QColor m_strokeColor = "#D6D6D6";
 
 signals:
     void themeChanged();
