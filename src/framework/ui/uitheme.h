@@ -91,6 +91,8 @@ private:
     QColor m_popupBackgroundColor = "#F3F3F3";
     QColor m_strokeColor = "#D6D6D6";
 
+    // TODO: Add the rest of the ui properties
+
 signals:
     void themeChanged();
 };
