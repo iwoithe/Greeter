@@ -1,5 +1,6 @@
 import QtQuick 2.15
 
+import Greeter.Ui 0.1
 import Greeter.UiComponents 0.1
 
 Item {
@@ -23,8 +24,8 @@ Item {
             ctx.clearRect(0, 0, width, height)
 
             ctx.lineWidth = 2
-            ctx.fillStyle = "blue"
-            ctx.strokeStyle = "black"
+            ctx.fillStyle = UiTheme.popupBackgroundColor
+            ctx.strokeStyle = UiTheme.strokeColor
 
             ctx.beginPath()
 
@@ -46,8 +47,8 @@ Item {
     Rectangle {
         anchors.fill: parent
         anchors.topMargin: arrow.height
-        color: "blue"
+        color: UiTheme.popupBackgroundColor
         border.width: 2
-        border.color: "black"
+        border.color: UiTheme.strokeColor
     }
 }

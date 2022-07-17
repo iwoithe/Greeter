@@ -7,6 +7,16 @@ bool UiTheme::isDark() const
     return m_isDark;
 }
 
+void UiTheme::setIsDark(bool isDark)
+{
+    if (m_isDark == isDark) {
+        return;
+    }
+
+    m_isDark = isDark;
+    emit themeChanged();
+}
+
 QColor UiTheme::accentColor() const
 {
     return m_accentColor;

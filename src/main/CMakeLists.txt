@@ -7,5 +7,7 @@ target_link_libraries(Greeter PRIVATE
     actions
     appshell
     greet
+    interactive
+    ui
     uicomponents
 )
