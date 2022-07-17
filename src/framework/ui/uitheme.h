@@ -28,6 +28,9 @@ class UiTheme : public QObject
     Q_PROPERTY(QColor strokeColor READ strokeColor WRITE setStrokeColor NOTIFY themeChanged)
 
 public:
+    // TODO: Dynamically load the ui theme properties (either from std::map or a file)
+    void init();
+
     bool isDark() const;
     void setIsDark(bool isDark);
 
