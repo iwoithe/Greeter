@@ -1,5 +1,6 @@
 set(MODULE_NAME interactive)
 
+# TODO: Create the module files (interactivemodule.[cpp,h])
 set(MODULE_SRC
     internal/interactive.cpp
     internal/interactive.h
