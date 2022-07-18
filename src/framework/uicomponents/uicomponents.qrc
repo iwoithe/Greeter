@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
+        <file>qml/Greeter/UiComponents/GTDialog.qml</file>
+        <file>qml/Greeter/UiComponents/GTDialogBackground.qml</file>
         <file>qml/Greeter/UiComponents/GTPopup.qml</file>
         <file>qml/Greeter/UiComponents/GTPopupBackground.qml</file>
         <file>qml/Greeter/UiComponents/qmldir</file>
