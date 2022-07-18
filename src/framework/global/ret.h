@@ -20,6 +20,7 @@ public:
         UnknownError = 2,
         NotSupported = 3,
         NotImplemented = 4,
+        Bug = 5
     };
 
     Ret() = default;

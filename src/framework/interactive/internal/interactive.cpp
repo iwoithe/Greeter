@@ -19,6 +19,10 @@
 using namespace gt::interactive;
 using namespace gt::uicomponents;
 
+Interactive::Interactive(QObject* parent) : QObject(parent)
+{
+}
+
 Interactive* Interactive::instance()
 {
     static Interactive i;
@@ -34,10 +38,20 @@ Interactive::Result Interactive::openDialog(const std::string& path, Params& par
 {
     Interactive::Result result;
     for (auto iter = m_dialogs.begin(); iter != m_dialogs.end(); ++iter) {
+        // Path
         std::string p = iter->first;
+        // Resource path
         std::string rp = iter->second;
         if (path == p) {
             QQmlComponent* component = new QQmlComponent(qmlAppEngine(), QUrl(QString::fromStdString(rp)));
+            if (component->isError()) {
+                // TODO: Use a logger
+                std::cout << "Will not open dialog due to the following error." << std::endl;
+                std::cout << component->errorString().toStdString() << std::endl;
+                result["code"] = static_cast<int>(Ret::Code::Bug);
+                return result;
+            }
+
             DialogView* dialog = qobject_cast<DialogView*>(component->create());
 
             for (auto& [ name, par ] : params) {
@@ -52,6 +66,7 @@ Interactive::Result Interactive::openDialog(const std::string& path, Params& par
                 result = dialog->exec();
             } else {
                 dialog->open();
+                result["code"] = static_cast<int>(Ret::Code::Ok);
             }
 
             break;

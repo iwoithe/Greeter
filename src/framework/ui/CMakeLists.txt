@@ -7,4 +7,8 @@ set(MODULE_SRC
     uitheme.h
 )
 
+set(MODULE_LINK
+    global
+)
+
 include(${PROJECT_SOURCE_DIR}/build/module.cmake)

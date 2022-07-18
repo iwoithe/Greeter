@@ -1,6 +1,6 @@
 #include "appshell/appshell.h"
-#include "appshell/appshellmodule.h"
 
+#include "appshell/appshellmodule.h"
 #include "greet/greetmodule.h"
 #include "ui/uimodule.h"
 #include "uicomponents/uicomponentsmodule.h"

@@ -13,6 +13,9 @@ class Interactive : public QObject, public IInteractive
 {
     Q_OBJECT
 public:
+    explicit Interactive(QObject* parent = nullptr);
+    ~Interactive() override = default;
+
     static Interactive* instance();
     void regDialog(const std::string& path, const std::string& resourcePath) override;
     Result openDialog(const std::string& path, Params& params) override;

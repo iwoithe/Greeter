@@ -13,4 +13,8 @@ set(MODULE_QRC
     uicomponents.qrc
 )
 
+set(MODULE_LINK
+    ui
+)
+
 include(${PROJECT_SOURCE_DIR}/build/module.cmake)
