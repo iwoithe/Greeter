@@ -1,14 +1,10 @@
+#ifndef GT_GLOBAL_ENGINES_H 
+#define GT_GLOBAL_ENGINES_H 
+
 #include <QQmlEngine>
 #include <QQmlApplicationEngine>
 
-static QQmlEngine* qmlEngine()
-{
-    static QQmlEngine engine;
-    return &engine;
-}
+QQmlEngine* qmlEngine();
+QQmlApplicationEngine* qmlAppEngine();
 
-static QQmlApplicationEngine* qmlAppEngine()
-{
-    static QQmlApplicationEngine engine;
-    return &engine;
-}
+#endif

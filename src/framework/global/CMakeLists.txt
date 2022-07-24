@@ -4,7 +4,8 @@ include(${CMAKE_CURRENT_LIST_DIR}/modularity/modularity.cmake)
 
 set(MODULE_SRC
     ${MODULARITY_SRC}
-    # TODO: Move engines.h to the ui module
+    # TODO: Move engines.[cpp,h] to the ui module
+    engines.cpp
     engines.h
     ret.cpp
     ret.h

@@ -26,13 +26,13 @@ int AppShell::run(int argc, char** argv)
 {
     QApplication app(argc, argv);
 
+    qmlAppEngine()->addImportPath(":/qml");
+
     for (modularity::IModuleSetup* m : m_modules) {
         m->registerResources();
         m->registerStores();
         m->registerUiTypes();
     }
-
-    qmlAppEngine()->addImportPath(":/qml");
 
     const QUrl url(QStringLiteral("qrc:/qml") + "/Main.qml");
     qmlAppEngine()->load(url);
