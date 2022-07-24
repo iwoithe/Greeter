@@ -8,6 +8,6 @@ Item {
     
     Rectangle {
         anchors.fill: parent
-        color: UiTheme.popupBackgroundColor
+        color: UiTheme.backgroundPrimaryColor
     }
 }
