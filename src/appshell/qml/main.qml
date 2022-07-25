@@ -15,6 +15,11 @@ ApplicationWindow {
 
     menuBar: GTMenuBar {}
 
+    GreetingView {
+        id: greetingView
+        anchors.fill: parent
+    }
+
     Button {
         id: btn
         anchors.left: parent.left
@@ -36,8 +41,8 @@ ApplicationWindow {
 
             // TODO: Still not completely happy with this workflow
             contentItem: GTPopupBackground {
-                id: popupRoot
                 popupViewRoot: popupView
+                
                 Button {
                     anchors.left: parent.left
                     anchors.right: parent.right
@@ -50,10 +55,5 @@ ApplicationWindow {
                 }
             }
         }
-    }
-
-    GreetingView {
-        id: greetingView
-        anchors.fill: parent
     }
 }
