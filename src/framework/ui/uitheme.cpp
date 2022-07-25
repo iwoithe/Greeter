@@ -2,6 +2,18 @@
 
 using namespace gt::ui;
 
+void UiTheme::init()
+{
+}
+
+void UiTheme::loadTheme(const QString& file)
+{
+}
+
+void UiTheme::update()
+{
+}
+
 bool UiTheme::isDark() const
 {
     return m_isDark;

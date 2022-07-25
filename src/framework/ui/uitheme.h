@@ -3,7 +3,9 @@
 
 #include <QColor>
 #include <QFont>
+#include <QList>
 #include <QObject>
+#include <QVariantMap>
 
 // TODO: Should `iuitheme.h` exist?
 
@@ -30,6 +32,9 @@ class UiTheme : public QObject
 public:
     // TODO: Dynamically load the ui theme properties (either from std::map or a file)
     void init();
+    // TODO: Load from a TOML file
+    void loadTheme(const QString& file);
+    void update();
 
     bool isDark() const;
     void setIsDark(bool isDark);
@@ -75,6 +80,8 @@ private:
         bool pressed = false;
         bool focused = false;
     };
+
+    QList<QVariantMap> m_themes;
 
     bool m_isDark;
 
